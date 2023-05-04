@@ -9,7 +9,7 @@ for line in sys.stdin:
     if len(fields) < 4:
         continue
     elif len(fields) == 4: # 1-gram
-        word = fields[0]
+        word = fields[0].lower()
         try:
             year = int(fields[1])
         except:
@@ -17,8 +17,8 @@ for line in sys.stdin:
         occurence = int(fields[2])
         volumes = int(fields[3])
     elif len(fields) == 5: # 2-grams
-        word = fields[0]
-        second_word = fields[1]
+        word = fields[0].lower()
+        second_word = fields[1].lower()
         try:
             year = int(fields[2])
         except:
