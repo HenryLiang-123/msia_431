@@ -1,7 +1,7 @@
 #!/bin/bash
 
-input_path="wc-in" # in hdfs
-output_path="wd-out" # in hdfs and must not exist
+input_path="HW2Q1/*" # in hdfs
+output_path="HW2Q1/out_q1" # in hdfs and must not exist
 python_path=$(pwd)
 hadoop_lib_path="/opt/hadoop/hadoop/share/hadoop/tools/lib"
 

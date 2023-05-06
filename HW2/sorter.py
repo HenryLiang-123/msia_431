@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
   
 # import sys because we need to read and write data to STDIN and STDOUT
 import sys
