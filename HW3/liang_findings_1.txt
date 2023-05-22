@@ -1,0 +1,5 @@
+As seen in the histogram, the crime in Chicago is highest in the summer, and lowest in the winter months.
+This might be because of the weather. Winters in Chicago are very cold, and there are very little people
+out on the streets, which means less crime can happen. When its summer time, Warmer weather and longer days
+can provide better conditions for criminals to operate, making it easier to commit crimes under the cover of
+darkness.
