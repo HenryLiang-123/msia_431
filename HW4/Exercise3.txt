@@ -1,0 +1,29 @@
+Current training period is 2007-08 and 2008-02
+MAPE for prediction period 2008-02 to 2008-03: 1.4501794387714173
+Current training period is 2008-03 and 2008-09
+MAPE for prediction period 2008-09 to 2008-10: 1.8730615082287656
+Current training period is 2008-10 and 2009-04
+MAPE for prediction period 2009-04 to 2009-05: 1.8747243050785605
+Current training period is 2009-05 and 2009-11
+MAPE for prediction period 2009-11 to 2009-12: 1.6566472596085535
+Current training period is 2009-12 and 2010-06
+MAPE for prediction period 2010-06 to 2010-07: 1.5184830427195302
+Current training period is 2010-07 and 2011-01
+MAPE for prediction period 2011-01 to 2011-02: 1.733523900906742
+Current training period is 2011-02 and 2011-08
+MAPE for prediction period 2011-08 to 2011-09: 2.029778426413036
+Current training period is 2011-09 and 2012-03
+MAPE for prediction period 2012-03 to 2012-04: 1.6291050175933635
+Current training period is 2012-04 and 2012-10
+MAPE for prediction period 2012-10 to 2012-11: 1.338183303630483
+Current training period is 2012-11 and 2013-05
+MAPE for prediction period 2013-05 to 2013-06: 1.3436762306632342
+Current training period is 2013-06 and 2013-12
+MAPE for prediction period 2013-12 to 2014-01: 1.5087912156776215
+Current training period is 2014-01 and 2014-07
+MAPE for prediction period 2014-07 to 2014-08: 1.0729599173564135
+Current training period is 2014-08 and 2015-02
+MAPE for prediction period 2015-02 to 2015-03: 1.6493648008951056
+Max MAPE: 2.029778426413036
+Min MAPE: 1.0729599173564135
+Average MAPE: 1.590652182118679
