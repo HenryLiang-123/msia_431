@@ -9,7 +9,7 @@ import datetime
 import numpy as np
 
 def get_mape(path):
-    spark = SparkSession.builder.appName('financial_analysis').getOrCreate()
+    spark = SparkSession.builder.appName('hw4').getOrCreate()
     df = spark.read.csv(path, header=True, inferSchema=True)
 
     df = df.withColumn('bar_range', F.floor((df.bar_num - 1) / 10)) # starts from 1
@@ -29,6 +29,7 @@ def get_mape(path):
     df_new = df.join(df_range_avg, ['trade_id', 'bar_range'], 'left').fillna(0)
 
     mape_list = []
+    results_string = ""
 
     # Define your feature columns
     feature_columns = ['bar_range', 'direction', 'var12', 'var13', 'var14', 'var15', 'var16', 
@@ -58,38 +59,38 @@ def get_mape(path):
     start_date = df.agg({"time_stamp": "min"}).collect()[0]["min(time_stamp)"]
     end_date = start_date + datetime.timedelta(6*365/12)
 
-    with open('HW4/Exercise3.txt', 'a') as f:
         # Set up the rolling window
-        while end_date <= datetime.datetime(2015, 8, 3, 11, 15):
-            # Define the training data
-            train_df = df.filter((df['time_stamp'] >= start_date) & (df['time_stamp'] < end_date))
+    while end_date <= datetime.datetime(2015, 8, 3, 11, 15):
+        # Define the training data
+        train_df = df.filter((df['time_stamp'] >= start_date) & (df['time_stamp'] < end_date))
 
-            # Fit the model
-            lr = LinearRegression(featuresCol='features', labelCol='profit')
-            model = lr.fit(train_df)
+        # Fit the model
+        lr = LinearRegression(featuresCol='features', labelCol='profit')
+        model = lr.fit(train_df)
 
-            # Define the test data (one month after the training period)
-            test_date = end_date + datetime.timedelta(365/12)
-            test_df = df.filter((df['time_stamp'] >= end_date) & (df['time_stamp'] < test_date))
+        # Define the test data (one month after the training period)
+        test_date = end_date + datetime.timedelta(365/12)
+        test_df = df.filter((df['time_stamp'] >= end_date) & (df['time_stamp'] < test_date))
 
-            # Make predictions
-            predictions = model.transform(test_df)
+        # Make predictions
+        predictions = model.transform(test_df)
 
-            # Evaluate the model
-            mape = predictions.select(F.abs((F.col('profit') - F.col('prediction')) / F.col('profit')).alias('mape')).agg(F.mean('mape')).first()[0]
-            mape_list.append(mape)
+        # Evaluate the model
+        mape = predictions.select(F.abs((F.col('profit') - F.col('prediction')) / F.col('profit')).alias('mape')).agg(F.mean('mape')).first()[0]
+        mape_list.append(mape)
 
-            f.write(f"Current training period is {start_date.strftime('%Y-%m')} and {end_date.strftime('%Y-%m')}\n")
-            f.write(f"MAPE for prediction period {end_date.strftime('%Y-%m')} to {test_date.strftime('%Y-%m')}: {mape}\n")
-            f.write("")
-           
-            # Shift the training window
-            start_date = test_date
-            end_date = start_date + datetime.timedelta(6*365/12)
+        results_string += f"Current training period is {start_date.strftime('%Y-%m')} and {end_date.strftime('%Y-%m')}\n"
+        results_string += f"MAPE for prediction period {end_date.strftime('%Y-%m')} to {test_date.strftime('%Y-%m')}: {mape}\n"
+        
+        # Shift the training window
+        start_date = test_date
+        end_date = start_date + datetime.timedelta(6*365/12)
 
-        f.write(f"Max MAPE: {max(mape_list)}\n")
-        f.write(f"Min MAPE: {min(mape_list)}\n")
-        f.write(f"Average MAPE: {np.mean(mape_list)}\n")
+    results_string += f"Max MAPE: {max(mape_list)}\n"
+    results_string += f"Min MAPE: {min(mape_list)}\n"
+    results_string += f"Average MAPE: {np.mean(mape_list)}\n"
+    new_df = spark.createDataFrame([(results_string, )], ["Results"])
+    new_df.coalesce(1).write.text("s3://hwl6390-hw4/Exercise3.txt")
 
 if __name__ == "__main__":
-    get_mape('HW4/full_data.csv')
+    get_mape('s3://msia-432-hw4-data/full_data.csv')
