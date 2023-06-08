@@ -1,0 +1,29 @@
+HBase Shell
+Use "help" to get list of supported commands.
+Use "exit" to quit this interactive shell.
+For Reference, please visit: http://hbase.apache.org/2.0/book.html#shell
+Version 2.4.9, rc49f7f63fca144765bf7c2da41791769286dfccc, Fri Dec 17 19:02:09 PST 2021
+Took 0.0012 seconds
+hbase:001:0> scan 'hwl6390', {COLUMNS => ['from', 'date', 'body'], FILTER => "SingleColumnValueFilter('from', 'from', = ,'binary:pete.davis@enron.com') AND SingleColumnValueFilter('date', 'date', = ,'binary:2002-02')"}
+ROW  COLUMN+CELL
+ meyers-a/1. column=body:body, timestamp=2023-06-07T22:37:51.945, value=\x0A\x0AStart Date: 2/6/02; HourAhead hour: 23;  HourAhead schedule download failed. Manual intervention required.
+ meyers-a/1. column=date:date, timestamp=2023-06-07T22:37:51.945, value=2002-02
+ meyers-a/1. column=from:from, timestamp=2023-06-07T22:37:51.945, value=pete.davis@enron.com
+ meyers-a/2. column=body:body, timestamp=2023-06-07T22:37:51.907, value=\x0A\x0AStart Date: 2/6/02; HourAhead hour: 22;  No ancillary schedules awarded.  No variances detected. \x0A\x0A    LOG MESSAGES:\x0A\x0APARSING FILE -->> O:\x5CPortland\x5CWestDesk\x5CCalifornia Scheduling\x5CISO Final Schedules\x5C2002020622.txt\x0A!!!General SQL error.\x0ACouldn't update; currently locked by user 'Admin' on machine 'NAHOU-TRDTS5'.\x0ATable\x0A\x0A---- Energy Import/Export Schedule ----\x0A*** Final schedule not found for preferred schedule.\x0A     Details:\x0A\x0A  TRANS_TYPE: FINAL\x0A  SC_ID: ECTstNW\x0A  MKT_TYPE: 2\x0A  TRANS_DATE: 2/6/02\x0A  TIE_POINT: MALIN_5_RNDMTN\x0A  INTERCHG_ID: ENRJ_CISO_3000\x0A  ENGY_TYPE: FIRM\x0A\x0A
+ meyers-a/2. column=date:date, timestamp=2023-06-07T22:37:51.907, value=2002-02
+ meyers-a/2. column=from:from, timestamp=2023-06-07T22:37:51.907, value=pete.davis@enron.com
+ meyers-a/4. column=body:body, timestamp=2023-06-07T22:37:51.954, value=\x0A\x0AStart Date: 2/6/02; HourAhead hour: 21;  No ancillary schedules awarded.  No variances detected. \x0A\x0A    LOG MESSAGES:\x0A\x0APARSING FILE -->> O:\x5CPortland\x5CWestDesk\x5CCalifornia Scheduling\x5CISO Final Schedules\x5C2002020621.txt\x0A!!!General SQL error.\x0ACouldn't update; currently locked by user 'Admin' on machine 'NAHOU-TRDTS5'.\x0ATable\x0A\x0A---- Energy Import/Export Schedule ----\x0A*** Final schedule not found for preferred schedule.\x0A     Details:\x0A\x0A  TRANS_TYPE: FINAL\x0A  SC_ID: ECTstNW\x0A  MKT_TYPE: 2\x0A  TRANS_DATE: 2/6/02\x0A  TIE_POINT: MALIN_5_RNDMTN\x0A  INTERCHG_ID: ENRJ_CISO_3000\x0A  ENGY_TYPE: FIRM\x0A\x0A
+ meyers-a/4. column=date:date, timestamp=2023-06-07T22:37:51.954, value=2002-02
+ meyers-a/4. column=from:from, timestamp=2023-06-07T22:37:51.954, value=pete.davis@enron.com
+ meyers-a/5. column=body:body, timestamp=2023-06-07T22:37:51.897, value=\x0A\x0AStart Date: 2/6/02; HourAhead hour: 20;  No ancillary schedules awarded.  No variances detected. \x0A\x0A    LOG MESSAGES:\x0A\x0APARSING FILE -->> O:\x5CPortland\x5CWestDesk\x5CCalifornia Scheduling\x5CISO Final Schedules\x5C2002020620.txt\x0A!!!General SQL error.\x0ACouldn't update; currently locked by user 'Admin' on machine 'NAHOU-TRDTS5'.\x0ATable\x0A\x0A---- Energy Import/Export Schedule ----\x0A*** Final schedule not found for preferred schedule.\x0A     Details:\x0A\x0A  TRANS_TYPE: FINAL\x0A  SC_ID: ECTstNW\x0A  MKT_TYPE: 2\x0A  TRANS_DATE: 2/6/02\x0A  TIE_POINT: MALIN_5_RNDMTN\x0A  INTERCHG_ID: ENRJ_CISO_3000\x0A  ENGY_TYPE: FIRM\x0A\x0A
+ meyers-a/5. column=date:date, timestamp=2023-06-07T22:37:51.897, value=2002-02
+ meyers-a/5. column=from:from, timestamp=2023-06-07T22:37:51.897, value=pete.davis@enron.com
+ meyers-a/6. column=body:body, timestamp=2023-06-07T22:37:51.888, value=\x0A\x0AStart Date: 2/6/02; HourAhead hour: 19;  No ancillary schedules awarded.  No variances detected. \x0A\x0A    LOG MESSAGES:\x0A\x0APARSING FILE -->> O:\x5CPortland\x5CWestDesk\x5CCalifornia Scheduling\x5CISO Final Schedules\x5C2002020619.txt\x0A!!!General SQL error.\x0ACouldn't update; currently locked by user 'Admin' on machine 'NAHOU-TRDTS5'.\x0ATable\x0A\x0A---- Energy Import/Export Schedule ----\x0A*** Final schedule not found for preferred schedule.\x0A     Details:\x0A\x0A  TRANS_TYPE: FINAL\x0A  SC_ID: ECTstNW\x0A  MKT_TYPE: 2\x0A  TRANS_DATE: 2/6/02\x0A  TIE_POINT: MALIN_5_RNDMTN\x0A  INTERCHG_ID: ENRJ_CISO_3000\x0A  ENGY_TYPE: FIRM\x0A\x0A
+ meyers-a/6. column=date:date, timestamp=2023-06-07T22:37:51.888, value=2002-02
+ meyers-a/6. column=from:from, timestamp=2023-06-07T22:37:51.888, value=pete.davis@enron.com
+ meyers-a/8. column=body:body, timestamp=2023-06-07T22:37:51.831, value=\x0A\x0AStart Date: 2/6/02; HourAhead hour: 18;  No ancillary schedules awarded.  No variances detected. \x0A\x0A    LOG MESSAGES:\x0A\x0APARSING FILE -->> O:\x5CPortland\x5CWestDesk\x5CCalifornia Scheduling\x5CISO Final Schedules\x5C2002020618.txt\x0A!!!General SQL error.\x0ACouldn't update; currently locked by user 'Admin' on machine 'NAHOU-TRDTS5'.\x0ATable\x0A\x0A---- Energy Import/Export Schedule ----\x0A*** Final schedule not found for preferred schedule.\x0A     Details:\x0A\x0A  TRANS_TYPE: FINAL\x0A  SC_ID: ECTstNW\x0A  MKT_TYPE: 2\x0A  TRANS_DATE: 2/6/02\x0A  TIE_POINT: MALIN_5_RNDMTN\x0A  INTERCHG_ID: ENRJ_CISO_3000\x0A  ENGY_TYPE: FIRM\x0A\x0A
+ meyers-a/8. column=date:date, timestamp=2023-06-07T22:37:51.831, value=2002-02
+ meyers-a/8. column=from:from, timestamp=2023-06-07T22:37:51.831, value=pete.davis@enron.com
+6 row(s)
+Took 0.3848 seconds
+hbase:002:0> 
